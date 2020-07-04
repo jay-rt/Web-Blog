@@ -9,7 +9,7 @@ class Main extends Controller {
      * http://localhost/
      */
     function Index () {
-        $data = Array("title" => "Main Index");
+        $data = Array("title" => "Home");
         $this->view("template/header", $data);
         $this->view("template/menu");
         $this->view("main/index");
@@ -18,7 +18,7 @@ class Main extends Controller {
     }
 
     function listOfBlogs() {
-        $data = Array("title" => "List of Blogs");
+        $data = Array("title" => "Blog Lists");
         $this->view("template/header", $data);
         $this->view("template/menu");
         $this->view("blog/list/index");
