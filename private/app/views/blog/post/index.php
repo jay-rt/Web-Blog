@@ -3,7 +3,7 @@
         <header>
             <div class="inner">
                 <h2>Blog Post</h2>
-                <p>Read it at your own pleasure</p>
+                <p>Hehe! Got your click. Now, read it at your own pleasure</p>
             </div>
         </header>
 
