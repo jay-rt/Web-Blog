@@ -12,7 +12,7 @@
                 <div class="inner">
 
                     <h3 class="major">What I write</h3>
-                    <p>Well whatever pops my mind or things that blows me away.</p>
+                    <p>Well whatever pops in my mind or things that blows me away.</p>
 
                     <section class="features">
                         <article>
