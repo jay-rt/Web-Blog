@@ -16,28 +16,28 @@
 
                     <section class="features">
                         <article>
-                            <a href="/main/readBlog/1" class="image"><img src="/public/images/pic04.jpg" alt="" /></a>
-                            <h3 class="major">Blog Post 1</h3>
+                            <a href="#" class="image"><img src="/public/images/pic04.jpg" alt="" /></a>
+                            <h3 class="major">Horrible Post</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing vehicula id nulla dignissim dapibus ultrices.</p>
-                            <a href="#" class="special">Learn more</a>
+                            <a href="/main/readBlog/1" class="special">Learn more</a>
                         </article>
                         <article>
-                            <a href="/main/readBlog/2" class="image"><img src="/public/images/pic05.jpg" alt="" /></a>
-                            <h3 class="major">Blog Post 2</h3>
+                            <a href="#" class="image"><img src="/public/images/pic05.jpg" alt="" /></a>
+                            <h3 class="major">Dont Click</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing vehicula id nulla dignissim dapibus ultrices.</p>
-                            <a href="#" class="special">Learn more</a>
+                            <a href="/main/readBlog/2" class="special">Learn more</a>
                         </article>
                         <article>
-                            <a href="/main/readBlog/3" class="image"><img src="/public/images/pic06.jpg" alt="" /></a>
-                            <h3 class="major">Blog Post 3</h3>
+                            <a href="#" class="image"><img src="/public/images/pic06.jpg" alt="" /></a>
+                            <h3 class="major">I warn ya</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing vehicula id nulla dignissim dapibus ultrices.</p>
-                            <a href="#" class="special">Learn more</a>
+                            <a href="/main/readBlog/3" class="special">Learn more</a>
                         </article>
                         <article>
-                            <a href="/main/readBlog/4" class="image"><img src="/public/images/pic07.jpg" alt="" /></a>
-                            <h3 class="major">Blog Post 4</h3>
+                            <a href="#" class="image"><img src="/public/images/pic07.jpg" alt="" /></a>
+                            <h3 class="major">Well U had it coming</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing vehicula id nulla dignissim dapibus ultrices.</p>
-                            <a href="#" class="special">Learn more</a>
+                            <a href="/main/readBlog/4" class="special">Learn more</a>
                         </article>
                     </section>
 
