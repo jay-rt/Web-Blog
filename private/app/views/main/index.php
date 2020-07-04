@@ -1,8 +1,8 @@
-<div class="main">
-    <div class="right">
-        <h1>Main Index</h1>
-        <p>This is the main page that is also the default.</p>
-
-        <a href="//www.google.ca">Google</a>
-    </div>
-</div>
+<!-- Banner -->
+    <section id="banner">
+        <div class="inner">
+            <div class="logo"><span class="icon fa-gem"></span></div>
+            <h2>Hello There! Welcome to My personal blog!</h2>
+            <p>Thank you for taking your time to stop by. Greatly Appreciated</p>
+        </div>
+    </section>
