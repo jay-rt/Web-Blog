@@ -12,9 +12,9 @@
 			<div id="page-wrapper">
 
                 <!-- Header -->
-                    <header id="header" class="alt">
-                        <h1><a href="/">Jay's Blog</a></h1>
-                        <nav>
-                            <a href="#menu">Menu</a>
-                        </nav>
-                    </header>
+                    <header id="header">
+						<h1><a href="index.html">Jay's Blog</a></h1>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
