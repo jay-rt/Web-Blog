@@ -10,6 +10,11 @@ class Main extends Controller {
      */
     function Index () {
         $data = Array("title" => "Home");
+
+        // $this->model('blogmodel');
+        
+        // $version = $this->blogmodel->DbVersion();
+
         $this->view("template/header", $data);
         $this->view("template/menu");
         $this->view("main/index");
