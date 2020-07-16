@@ -6,13 +6,12 @@ class BlogModel extends Model {
         parent::__construct();
     }
 
-    // function DbVersion() {
-    //     $sql = 'SELECT VERSION()';
-    //     $stmt = $this->db->prepare($sql);
-    //     $res = $stmt->fetch();
-    //     return $res[0];
-    // }
+    function DbVersion() {
+        $sql = 'SELECT VERSION()';
+        $stmt = $this->db->query($sql);
+        $res = $stmt->fetch();
+        return $res[0];
+    }
 }
-
 
 ?>

@@ -9,15 +9,15 @@ class Main extends Controller {
      * http://localhost/
      */
     function Index () {
-        $data = Array("title" => "Home");
-
-        // $this->model('blogmodel');
+        $this->model('blogmodel');
         
-        // $version = $this->blogmodel->DbVersion();
+        $version = $this->blogmodel->DbVersion();
+
+        $data = Array("title" => "Home", "version" => $version);
 
         $this->view("template/header", $data);
         $this->view("template/menu");
-        $this->view("main/index");
+        $this->view("main/index", $data);
         $this->view("template/footer");
         
     }
