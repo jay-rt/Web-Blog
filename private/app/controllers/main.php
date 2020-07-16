@@ -30,11 +30,15 @@ class Main extends Controller {
         $this->view("template/footer");
     }
 
-    function readBlog() {
+    function readBlog($slug) {
+
+        $this->model("blogmodel");
+        $article = $this->blogmodel->readArticle($slug);
+
         $data = Array("title" => "Blog Entry");
         $this->view("template/header", $data);
         $this->view("template/menu");
-        $this->view("blog/post/index");
+        $this->view("blog/post/index", $article);
         $this->view("template/footer");
     }
 
