@@ -1,5 +1,5 @@
 <!-- Banner -->
-    <!-- <section id="banner">
+    <section id="banner">
         <div class="inner">
             <div class="logo"><span class="icon fa-gem"></span></div>
             <h2>Hello There! Welcome to My personal blog!</h2>
@@ -10,7 +10,7 @@
     <section id="wrapper"> -->
 
         <!-- One -->
-            <!-- <section id="one" class="wrapper spotlight style1">
+           <section id="one" class="wrapper spotlight style1">
                 <div class="inner">
                     <a href="#" class="image"><img src="/public/images/pic01.jpg" alt="" /></a>
                     <div class="content">
@@ -21,6 +21,4 @@
                 </div>
             </section>
 
-    </section> -->
-
-    <h1> The database version is : <?php echo($version) ?> </h1>
+    </section>
