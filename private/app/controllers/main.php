@@ -9,11 +9,13 @@ class Main extends Controller {
      * http://localhost/
      */
     function Index () {
-        $this->model('blogmodel');
+        // $this->model('blogmodel');
         
-        $version = $this->blogmodel->DbVersion();
+        // $version = $this->blogmodel->DbVersion();
 
-        $data = Array("title" => "Home", "version" => $version);
+        // $data = Array("title" => "Home", "version" => $version);
+
+        $data = Array("title" => "Home");
 
         $this->view("template/header", $data);
         $this->view("template/menu");
@@ -25,12 +27,15 @@ class Main extends Controller {
     function listOfBlogs() {
 
         $this->model("blogmodel");
-        $article = $this->blogmodel->blogList();
+        $articles = $this->blogmodel->blogList();
 
         $data = Array("title" => "Blog Lists");
         $this->view("template/header", $data);
         $this->view("template/menu");
-        $this->view("blog/list/index", $article);
+
+        foreach ($articles as $article) {
+            $this->view("blog/list/index", $article);
+        }
         $this->view("template/footer");
     }
 

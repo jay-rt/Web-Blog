@@ -6,16 +6,16 @@ class BlogModel extends Model {
         parent::__construct();
     }
 
-    function DbVersion() {
-        $sql = 'SELECT VERSION()';
-        $stmt = $this->db->query($sql);
-        $res = $stmt->fetch();
-        return $res[0];
-    }
+    // function DbVersion() {
+    //     $sql = 'SELECT VERSION()';
+    //     $stmt = $this->db->query($sql);
+    //     $res = $stmt->fetch();
+    //     return $res[0];
+    // }
 
     function blogList() {
         $sql = 'SELECT 
-            a.name AS Name
+            CONCAT(a.first_name," ", a.last_name) AS Name
             ,b.post_name AS "Post Name"
             ,b.post_context AS "Post Context"
             FROM author a
@@ -29,9 +29,9 @@ class BlogModel extends Model {
     }
 
     function blogPost($slug) {
-        $sql = 'SELECT * FROM blogPost WHERE Slug = ?';
+        $sql = 'SELECT * FROM blogPost WHERE Slug = :slug';
         $stmt = $this->db->prepapre($sql);
-        $stmt->execute(array($slug));
+        $stmt->execute(array("slug" => $slug));
         $res = $stmt->fetch();
 
         return $res;
