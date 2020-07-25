@@ -23,17 +23,21 @@ class Main extends Controller {
     }
 
     function listOfBlogs() {
+
+        $this->model("blogmodel");
+        $article = $this->blogmodel->blogList();
+
         $data = Array("title" => "Blog Lists");
         $this->view("template/header", $data);
         $this->view("template/menu");
-        $this->view("blog/list/index");
+        $this->view("blog/list/index", $article);
         $this->view("template/footer");
     }
 
     function readBlog($slug) {
 
         $this->model("blogmodel");
-        $article = $this->blogmodel->readArticle($slug);
+        $article = $this->blogmodel->blogPost($slug);
 
         $data = Array("title" => "Blog Entry");
         $this->view("template/header", $data);

@@ -13,11 +13,22 @@ class BlogModel extends Model {
         return $res[0];
     }
 
-    function listBlogArticles() {
+    function blogList() {
+        $sql = 'SELECT 
+            a.name AS Name
+            ,b.post_name AS "Post Name"
+            ,b.post_context AS "Post Context"
+            FROM author a
+            JOIN blogPost b
+            ON a.email = b.author_email';
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute();
+        $res = $stmt->fetch();
 
+        return $res;
     }
 
-    function readArticle($slug) {
+    function blogPost($slug) {
         $sql = 'SELECT * FROM blogPost WHERE Slug = ?';
         $stmt = $this->db->prepapre($sql);
         $stmt->execute(array($slug));
