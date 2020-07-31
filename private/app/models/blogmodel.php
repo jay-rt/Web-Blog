@@ -23,7 +23,10 @@ class BlogModel extends Model {
     }
 
     function blogPost($slug) {
-        $sql = 'SELECT * FROM blog_post WHERE Slug = :slug';
+        $sql = 'SELECT * FROM blog_post
+        JOIN author
+        ON author.email = blog_post.author_email
+        WHERE Slug = :slug';
         $stmt = $this->db->prepare($sql);
         $stmt->execute(array("slug" => $slug));
         $res = $stmt->fetch();
