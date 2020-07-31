@@ -41,7 +41,7 @@ class Main extends Controller {
         $this->view("template/footer");
     }
 
-    function readBlog($slug) {
+    function readBlog($slug = "uHadItComing") {
 
         $this->model("blogmodel");
         $article = $this->blogmodel->blogPost($slug);
