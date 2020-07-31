@@ -32,10 +32,12 @@ class Main extends Controller {
         $data = Array("title" => "Blog Lists");
         $this->view("template/header", $data);
         $this->view("template/menu");
+        $this->view("blog/list/index01");
 
-        foreach ($articles as $article) {
-            $this->view("blog/list/index", $article);
+        foreach ($articles as $key => $article) {
+            $this->view("template/article", $article);
         }
+        $this->view("blog/list/index02");
         $this->view("template/footer");
     }
 

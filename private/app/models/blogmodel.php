@@ -14,23 +14,17 @@ class BlogModel extends Model {
     // }
 
     function blogList() {
-        $sql = 'SELECT 
-            CONCAT(a.first_name," ", a.last_name) AS Name
-            ,b.post_name AS "Post Name"
-            ,b.post_context AS "Post Context"
-            FROM author a
-            JOIN blogPost b
-            ON a.email = b.author_email';
+        $sql = 'SELECT * from blog_post';
         $stmt = $this->db->prepare($sql);
         $stmt->execute();
-        $res = $stmt->fetch();
+        $res = $stmt->fetchAll();
 
         return $res;
     }
 
     function blogPost($slug) {
-        $sql = 'SELECT * FROM blogPost WHERE Slug = :slug';
-        $stmt = $this->db->prepapre($sql);
+        $sql = 'SELECT * FROM blog_post WHERE Slug = :slug';
+        $stmt = $this->db->prepare($sql);
         $stmt->execute(array("slug" => $slug));
         $res = $stmt->fetch();
 
