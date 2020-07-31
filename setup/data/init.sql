@@ -24,7 +24,7 @@ INSERT INTO author (email, first_name, last_name, password_hash) VALUES ("thapa.
 INSERT INTO blog_post (slug, post_name, post_context, publication_date, author_email) VALUES
 ("badPost", "Horrible Post", "OMG! what could be morse worse than this. How can someone be so horrible at something", NOW(), "thapa.jayrt@gmail.com"),
 
-("noClick", "Don't Click", "Trust my advice and make sure you stay away. Trust me you don't want to check the post", NOW(), "thapa.jayrt@gmail.com"),
+("donClick", "Don't Click", "Trust my advice and make sure you stay away. Trust me you don't want to check the post", NOW(), "thapa.jayrt@gmail.com"),
 
 ("listening", "Are you even listening to me", "What you are even more excited to see what's in there. My gosh! Some people", NOW(), "zoldyckillua07@gmail.com"),
 
