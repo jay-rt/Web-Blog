@@ -34,8 +34,10 @@ class Main extends Controller {
         $this->view("template/menu");
         $this->view("blog/list/index01");
 
-        foreach ($articles as $article) {
+        foreach ($articles as $key=>$article) {
+            $article["key"] = $key;
             $this->view("template/article", $article);
+
         }
         $this->view("blog/list/index02");
         $this->view("template/footer");
