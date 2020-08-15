@@ -12,7 +12,7 @@ CREATE TABLE blog_post (
     , post_name VARCHAR(255) NOT NULL
     , post_context TEXT NOT NULL
     , author_email VARCHAR(255) NOT NULL
-    , publication_date DATETIME NOT NULL
+    , publication_date DATETIME DEFAULT NOW() 
     , CONSTRAINT fk_author_blog_post
         FOREIGN KEY (author_email)
         REFERENCES author (email)

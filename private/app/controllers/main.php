@@ -24,37 +24,6 @@ class Main extends Controller {
         
     }
 
-    function listOfBlogs() {
-
-        $this->model("blogmodel");
-        $articles = $this->blogmodel->blogList();
-
-        $data = Array("title" => "Blog Lists");
-        $this->view("template/header", $data);
-        $this->view("template/menu");
-        $this->view("blog/list/index01");
-
-        foreach ($articles as $key=>$article) {
-            $article["key"] = $key;
-            $this->view("template/article", $article);
-
-        }
-        $this->view("blog/list/index02");
-        $this->view("template/footer");
-    }
-
-    function readBlog($slug = "uHadItComing") {
-
-        $this->model("blogmodel");
-        $article = $this->blogmodel->blogPost($slug);
-
-        $data = Array("title" => "Blog Entry");
-        $this->view("template/header", $data);
-        $this->view("template/menu");
-        $this->view("blog/post/index", $article);
-        $this->view("template/footer");
-    }
-
 }
 
 ?>
