@@ -54,7 +54,7 @@ class Blog extends Controller {
             $this->model("blogmodel");
             $this->blogmodel->createBlog($slug, $post_name, $post_context, $author_email);
         }else{
-            $data = Array("title" => "Blog Entry");
+            $data = Array("title" => "Create New Blog");
             $this->view("template/header", $data);
             $this->view("template/menu");
             $this->view("blog/create/index");
