@@ -1,7 +1,7 @@
 <section id="wrapper">
     <header>
         <div class="inner">
-            <h2>Create Blog</h2>
+            <h2>Create New Blog</h2>
             <form method="POST">
                 <label>Slug <input type="text" name="slug" title="Enter the slug value for this post" required></label>
                 <label>Author's Email <input type="email" name="author_email" pattern="+@gmail.com" title="Enter the author's email address" required></label>

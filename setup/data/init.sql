@@ -22,10 +22,10 @@ INSERT INTO author (email, first_name, last_name, password_hash) VALUES ("thapa.
 ("zoldyckillua07@gmail.com", "Killua", "Zoldyck", "heaven@rena");
 
 INSERT INTO blog_post (slug, post_name, post_context, publication_date, author_email) VALUES
-("badPost", "Horrible Post", "OMG! what could be morse worse than this. How can someone be so horrible at something", NOW(), "thapa.jayrt@gmail.com"),
+("badpost", "Horrible Post", "OMG! What could be morse worse than this? How can someone be so horrible at something?", NOW(), "thapa.jayrt@gmail.com"),
 
-("donClick", "Don't Click", "Trust my advice and make sure you stay away. Trust me you don't want to check the post", NOW(), "thapa.jayrt@gmail.com"),
+("donclick", "Don't Click", "Trust me when I say stay away from this. You do not want to check this post.", NOW(), "thapa.jayrt@gmail.com"),
 
-("listening", "Are you even listening to me", "What you are even more excited to see what's in there. My gosh! Some people", NOW(), "zoldyckillua07@gmail.com"),
+("listening", "Are you even listening to me", "What! You are even more excited to see what's in there. My gosh! Some people", NOW(), "zoldyckillua07@gmail.com"),
 
-("uHadItComing", "Well U had it coming", "Decided to click anywasy huh. Well dont tell me I didn't warn you.", NOW(), "zoldyckillua07@gmail.com");
+("uhaditcoming", "Well U had it coming", "Decided to click anyway, huh! Well, don't tell me I didn't warn you.", NOW(), "zoldyckillua07@gmail.com");
