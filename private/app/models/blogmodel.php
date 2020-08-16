@@ -14,7 +14,7 @@ class BlogModel extends Model {
     // }
 
     function blogList() {
-        $sql = 'SELECT * from blog_post';
+        $sql = 'SELECT * from blog_post ORDER BY publication_date';
         $stmt = $this->db->prepare($sql);
         $stmt->execute();
         $res = $stmt->fetchAll();
@@ -32,6 +32,12 @@ class BlogModel extends Model {
         $res = $stmt->fetch();
 
         return $res;
+    }
+
+    function createBlog($slug, $post_name, $post_context, $author_email) {
+        $sql = "INSERT INTO blog_post(slug, post_name, post_context, author_email) VALUES (:slug, :post_name, :post_context, :author_email)";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute(array("slug" => $slug, "post_name" => $post_name, "post_context" => $post_context, "author_email" => $author_email));
     }
 }
 
