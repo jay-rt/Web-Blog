@@ -7,7 +7,7 @@
                 <label>Author's Email <input type="email" name="author_email" pattern="+@gmail.com" title="Enter the author's email address" required></label>
                 <label>Title <input type="text" name="post_name" title="Enter the title of the post" required></label>
                 <label>Content <textarea name="post_context" title="Enter the Content for the post" required></textarea></label>
-                <button type="submit">Submit</button>
+                <button type="submit">Create</button>
             </form>
         </div>
     </header>

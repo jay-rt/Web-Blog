@@ -39,6 +39,21 @@ class BlogModel extends Model {
         $stmt = $this->db->prepare($sql);
         $stmt->execute(array("slug" => $slug, "post_name" => $post_name, "post_context" => $post_context, "author_email" => $author_email));
     }
+
+    function latestBlog() {
+        $sql = "SELECT * FROM blog_post ORDER BY publication_date DESC LIMIT 1";
+         $stmt = $this->db->prepare($sql);
+         $stmt->execute();
+         $res = $stmt->fetch();
+
+         return $res;
+    }
+
+    function updateBlog($slug, $post_name, $post_context, $pk) {
+        $sql = "UPDATE blog_post SET slug = :slug, post_name = :post_name, post_context = :post_context WHERE slug = :pk";
+        $stmt = $this->db->prepare($sql);
+        return $stmt->execute(array("slug" => $slug, "post_name" => $post_name, "post_context" => $post_context, "pk" => $pk));
+    }
 }
 
 ?>

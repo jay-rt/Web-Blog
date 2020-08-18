@@ -61,6 +61,33 @@ class Blog extends Controller {
             $this->view("template/footer");
         }
     }
+
+    function updateBlog() {
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+            $slug = htmlentities($_POST["slug"]);
+            $post_name = htmlentities($_POST["post_name"]);
+            $post_context = htmlentities($_POST["post_context"]);
+            $pk = htmlentities($_POST["pk"]);
+
+            $this->model("blogmodel");
+            $wasUpdated = $this->blogmodel->updateBlog($slug, $post_name, $post_context, $pk);
+            if($wasUpdated) {
+                echo("Success");
+            }else{
+                echo("Failed");
+            }
+        }else{
+            $this->model("blogmodel");
+            $blog = $this->blogmodel->latestBlog();
+
+            $data = Array("title" => "Update Blog");
+            $this->view("template/header", $data);
+            $this->view("template/menu");
+            $this->view("blog/update/index", $blog);
+            $this->view("template/footer");
+        }
+    }
 }
 
 
