@@ -64,8 +64,9 @@ class Blog extends Controller {
     }
 
     function updateBlog($slug = "uHadItComing") {
-        if ($_SERVER["REQUEST_METHOD"] == "POST" && $_SERVER["REQUEST_URI"] == "/blog/updateblog/<?php echo($slug)?>") {
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
+            
             $slug = htmlentities($_POST["slug"]);
             $post_name = htmlentities($_POST["post_name"]);
             $post_context = htmlentities($_POST["post_context"]);
