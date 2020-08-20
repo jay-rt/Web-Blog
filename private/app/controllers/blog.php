@@ -63,8 +63,8 @@ class Blog extends Controller {
         }
     }
 
-    function updateBlog() {
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    function updateBlog($slug = "uHadItComing") {
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && $_SERVER["REQUEST_URI"] == "/blog/updateblog/<?php echo($slug)?>") {
 
             $slug = htmlentities($_POST["slug"]);
             $post_name = htmlentities($_POST["post_name"]);
@@ -80,7 +80,7 @@ class Blog extends Controller {
             }
         }else{
             $this->model("blogmodel");
-            $blog = $this->blogmodel->latestBlog();
+            $blog = $this->blogmodel->blogPost($slug);
 
             $data = Array("title" => "Update Blog");
             $this->view("template/header", $data);

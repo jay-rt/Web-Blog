@@ -30,6 +30,10 @@
                         <?php echo($email)?><br>
                         <?php echo($publication_date)?></p>
 
+                    <form method="POST" action="/blog/updateblog/<?php echo($slug)?>">
+                        <button type="submit">Update</button>
+                    </form>
+
                 </div>
             </div>
 
