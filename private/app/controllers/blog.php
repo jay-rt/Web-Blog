@@ -87,11 +87,17 @@ class Blog extends Controller {
             $this->model("blogmodel");
             $blog = $this->blogmodel->blogPost($slug);
 
-            $data = Array("title" => "Update Blog");
-            $this->view("template/header", $data);
-            $this->view("template/menu");
-            $this->view("blog/update/index", $blog);
-            $this->view("template/footer");
+            $email = $blog["email"];
+
+            if(strcmp($email,$_SESSION["email"]) == 0){
+                $data = Array("title" => "Update Blog");
+                $this->view("template/header", $data);
+                $this->view("template/menu");
+                $this->view("blog/update/index", $blog);
+                $this->view("template/footer");
+            } else {
+                header("Location: /");
+            }
         } else{
             header("Location: /");
         }
