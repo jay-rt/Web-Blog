@@ -66,7 +66,7 @@ class Blog extends Controller {
     }
 
     function updateBlog($slug = "uHadItComing") {
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && $_SESSION["isLoggedIn"]) {
 
             
             $slug = htmlentities($_POST["slug"]);
@@ -75,13 +75,15 @@ class Blog extends Controller {
             $pk = htmlentities($_POST["pk"]);
 
             $this->model("blogmodel");
-            $wasUpdated = $this->blogmodel->updateBlog($slug, $post_name, $post_context, $pk);
-            if($wasUpdated) {
-                echo("Success");
-            }else{
-                echo("Failed");
-            }
-        }else{
+            // $wasUpdated = $this->blogmodel->updateBlog($slug, $post_name, $post_context, $pk);
+            $this->blogmodel->updateBlog($slug, $post_name, $post_context, $pk);
+            // if($wasUpdated) {
+            //     echo("Success");
+            // }else{
+            //     echo("Failed");
+            // }
+            header("Location: /blog/readblog/$slug");
+        }else if($_SERVER["REQUEST_METHOD"] != "POST" && $_SESSION["isLoggedIn"]){
             $this->model("blogmodel");
             $blog = $this->blogmodel->blogPost($slug);
 
@@ -90,6 +92,8 @@ class Blog extends Controller {
             $this->view("template/menu");
             $this->view("blog/update/index", $blog);
             $this->view("template/footer");
+        } else{
+            header("Location: /");
         }
     }
 }

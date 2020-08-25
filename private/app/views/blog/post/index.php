@@ -30,6 +30,10 @@
                         <?php echo($email)?><br>
                         <?php echo($publication_date)?></p>
 
+                    <?php if(strcmp($email,$_SESSION["email"]) == 0) : ?>
+                    <button onclick="window.location.href='/blog/updateblog/<?php echo($slug)?>';"> Update</button>
+                    <?php endif ?>
+
                 </div>
             </div>
 

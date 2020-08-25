@@ -16,7 +16,6 @@ class User extends Controller {
         if ($_SERVER["REQUEST_METHOD"] == "POST" && (empty($_SESSION["isLoggedIn"]) || !$_SESSION["isLoggedIn"])) {
             $email = htmlentities($_POST["email"]);
             $password = htmlentities($_POST["password"]);
-            // $password = $_POST["password"];
             // $verify = password_hash($password,PASSWORD_DEFAULT);
             // echo($verify);
             $this->model("blogmodel");
