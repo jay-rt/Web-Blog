@@ -24,10 +24,10 @@ INSERT INTO author (email, first_name, last_name, password_hash) VALUES ("naruto
 -- password for nagato = amegakure
 
 INSERT INTO blog_post (slug, post_name, post_context, publication_date, author_email) VALUES
-("badpost", "Horrible Post", "OMG! What could be morse worse than this? How can someone be so horrible at something?", NOW(), "thapa.jayrt@gmail.com"),
+("badpost", "Horrible Post", "OMG! What could be morse worse than this? How can someone be so horrible at something?", NOW(), "naruto_dattebayo@konoha.com"),
 
-("donclick", "Don't Click", "Trust me when I say stay away from this. You do not want to check this post.", NOW(), "thapa.jayrt@gmail.com"),
+("donclick", "Don't Click", "Trust me when I say stay away from this. You do not want to check this post.", NOW(), "nagato_pain@akatsuki.com"),
 
-("listening", "Are you even listening to me", "What! You are even more excited to see what's in there. My gosh! Some people", NOW(), "zoldyckillua07@gmail.com"),
+("listening", "Are you even listening to me", "What! You are even more excited to see what's in there. My gosh! Some people", NOW(), "nagato_pain@akatsuki.com"),
 
-("uhaditcoming", "Well U had it coming", "Decided to click anyway, huh! Well, don't tell me I didn't warn you.", NOW(), "zoldyckillua07@gmail.com");
+("uhaditcoming", "Well U had it coming", "Decided to click anyway, huh! Well, don't tell me I didn't warn you.", NOW(), "naruto_dattebayo@konoha.com");
