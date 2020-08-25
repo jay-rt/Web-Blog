@@ -11,38 +11,9 @@ class User extends Controller {
     function Index () {
         echo("This is the user controller");
     }
-
-    // function SignIn() {
-    //     if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-    //          $data = Array("title" => "PHP Blog");
-
-    //         //TODO: send out signup form
-    //         $this->view("template/header", $data);
-    //         $this->view("user/signin");
-    //         $this->view("template/footer");
-    //     } else if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    //         //TODO: Authenticate the user
-    //         // echo("You posted the form");
-
-    //         $email = htmlentities($_POST["email"]);
-    //         $password = htmlentities($_POST["password"]);
-    //         // echo("$email -> $password <br>");
-    //         // echo(password_hash($password, PASSWORD_DEFAULT));
-    //         $isValidPass = password_verify($password, '$2y$10$sinpSZ9iLqLUW.eRSkEZF.fMr1jcE0FQ2fjvxu1LoT6BkBpGlEwYW');
-
-    //         if($isValidPass) {
-    //             echo("Valid");
-    //             $_SESSION['LoggedIn'] = true;
-    //         } else{
-    //             echo("Not Valid");
-    //         }
-
-    //         print_r($_SESSION);
-    //     }
-    // }
-
+    
     function signIn() {
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && (empty($_SESSION["isLoggedIn"]) || !$_SESSION["isLoggedIn"])) {
             $email = htmlentities($_POST["email"]);
             $password = htmlentities($_POST["password"]);
             // $password = $_POST["password"];
@@ -52,29 +23,52 @@ class User extends Controller {
             $hash = $this->blogmodel->getpasswordhash($email);
             // echo($hash);
             $isVerified = password_verify($password, $hash);
+            $_SESSION["isLoggedIn"] = $isVerified;
+            $_SESSION["email"] = $email;
 
-            if($isVerified) {
-                echo("$isVerified <br>");
-                echo("Hash : $hash <br>");
-                echo("Password: $password <br>");
-                echo("Logged in");
-                // header("Location: /blog/listofblogs");
+            if($_SESSION["isLoggedIn"]) {
+                // echo("$isVerified <br>"); 
+                // echo("Hash : $hash <br>");
+                // echo("Password: $password <br>");
+                // echo("Logged in");
+                header("Location: /");
             } else {
-                echo("$isVerified <br>");
-                echo("Hash : $hash <br>");
-                echo("Password: $password <br>");
-                echo("Invalid Credentials");
-                // header("Location: /user/signin");
+                // echo("$isVerified <br>");
+                // echo("Hash : $hash <br>");
+                // echo("Password: $password <br>");
+                // echo("Invalid Credentials");
+                header("Location: /user/signin");
             }
             
 
         } else {
-            $data = Array("title" => "Sign In");
+            if(empty($_SESSION["isLoggedIn"]) || !$_SESSION["isLoggedIn"]) {
+                $data = Array("title" => "Sign In");
             
-            $this->view("template/header", $data);
-            $this->view("user/signin");
-            $this->view("template/footer");
+                $this->view("template/header", $data);
+                $this->view("template/menu");
+                $this->view("user/signin");
+                $this->view("template/footer");
+            } else {
+            header("Location: /");
+            }
         }
+    }
+
+    function signOut() {
+        // $_SESSION["isLoggedIn"] = false;
+        // unset($_SESSION["isLoggedIn"]);
+        $_SESSION = array();
+        if (ini_get("session.use_cookies")) {
+            $params = session_get_cookie_params();
+            setcookie(session_name(), '', time() - 42000,
+                $params["path"], $params["domain"],
+                $params["secure"], $params["httponly"]
+            );
+        }
+
+        session_destroy();
+        header("Location: /");
     }
 }
 

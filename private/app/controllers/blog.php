@@ -44,22 +44,24 @@ class Blog extends Controller {
     }
 
     function createBlog() {
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && $_SESSION["isLoggedIn"]) {
 
             $slug = htmlentities($_POST["slug"]);
-            $author_email = htmlentities($_POST["author_email"]);
             $post_name = htmlentities($_POST["post_name"]);
             $post_context = htmlentities($_POST["post_context"]);
+            $author_email = $_SESSION["email"];
 
             $this->model("blogmodel");
             $this->blogmodel->createBlog($slug, $post_name, $post_context, $author_email);
             header("Location: /blog/listofblogs");
-        }else{
+        }else if ($_SERVER["REQUEST_METHOD"] != "POST" && $_SESSION["isLoggedIn"]){
             $data = Array("title" => "Create New Blog");
             $this->view("template/header", $data);
             $this->view("template/menu");
             $this->view("blog/create/index");
             $this->view("template/footer");
+        }else {
+            header("Location: /");
         }
     }
 

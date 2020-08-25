@@ -54,8 +54,9 @@
         }
 
         function start () {
-            session_start();
             $route = explode('/', URI);
+            
+            session_start();
 
             $route[1] = strtolower($route[1]);
 
