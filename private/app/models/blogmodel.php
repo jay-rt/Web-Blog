@@ -54,6 +54,15 @@ class BlogModel extends Model {
         $stmt = $this->db->prepare($sql);
         return $stmt->execute(array("slug" => $slug, "post_name" => $post_name, "post_context" => $post_context, "pk" => $pk));
     }
+
+    function getPasswordHash($email) {
+        $sql = "SELECT password_hash FROM author WHERE email = :email";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute(array("email" => $email));
+        $res = $stmt->fetch();
+
+        return $res[0];
+    }
 }
 
 ?>

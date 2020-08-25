@@ -18,8 +18,10 @@ CREATE TABLE blog_post (
         REFERENCES author (email)
 ) ENGINE = InnoDB;
 
-INSERT INTO author (email, first_name, last_name, password_hash) VALUES ("thapa.jayrt@gmail.com", "Jay", "Thapa", "123abc"), 
-("zoldyckillua07@gmail.com", "Killua", "Zoldyck", "heaven@rena");
+INSERT INTO author (email, first_name, last_name, password_hash) VALUES ("thapa.jayrt@gmail.com", "Jay", "Thapa", "$2y$10$3brHpw4v7TRlTBCn7iUrpev4dV8w55G9UYUZICiVQJaSlWr2uqWRa"), 
+("zoldyckillua07@gmail.com", "Killua", "Zoldyck", "$2y$10$a.QqqFMbRuaLr3iQZDCJZuUzVdgVOAz800.sMZqbZ7V0H99uTXtxS");
+-- passowrd for thapa.jayrt = whatever123
+-- password for zoldyckilla = heaven@rena
 
 INSERT INTO blog_post (slug, post_name, post_context, publication_date, author_email) VALUES
 ("badpost", "Horrible Post", "OMG! What could be morse worse than this? How can someone be so horrible at something?", NOW(), "thapa.jayrt@gmail.com"),
