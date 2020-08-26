@@ -7,7 +7,7 @@
         </div>
     </section>
 
-    <section id="wrapper"> -->
+    <section id="wrapper">
 
         <!-- One -->
            <section id="one" class="wrapper spotlight style1">
