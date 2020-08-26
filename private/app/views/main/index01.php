@@ -21,4 +21,11 @@
                 </div>
             </section>
 
-    </section>
+        <!-- Four -->
+            <section id="four" class="wrapper alt style1">
+                <div class="inner">
+                    <h2 class="major">Talk of the Town</h2>
+                    <p>Fresh out of the oven. You don't wanna miss them out</p>
+                    <section class="features">
+
+    

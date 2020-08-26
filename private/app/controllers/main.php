@@ -9,7 +9,8 @@ class Main extends Controller {
      * http://localhost/
      */
     function Index () {
-        // $this->model('blogmodel');
+        $this->model('blogmodel');
+        $articles = $this->blogmodel->latestBlog();
         
         // $version = $this->blogmodel->DbVersion();
 
@@ -19,7 +20,14 @@ class Main extends Controller {
 
         $this->view("template/header", $data);
         $this->view("template/menu");
-        $this->view("main/index", $data);
+        $this->view("main/index01");
+
+        foreach ($articles as $key=>$article) {
+            $article["key"] = $key;
+            $this->view("template/article", $article);
+
+        }
+        $this->view("main/index02");
         $this->view("template/footer");
         
     }

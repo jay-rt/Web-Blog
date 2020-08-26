@@ -53,7 +53,7 @@ class Blog extends Controller {
 
             $this->model("blogmodel");
             $this->blogmodel->createBlog($slug, $post_name, $post_context, $author_email);
-            header("Location: /blog/listofblogs");
+            header("Location: /");
         }else if ($_SERVER["REQUEST_METHOD"] != "POST" && $_SESSION["isLoggedIn"]){
             $data = Array("title" => "Create New Blog");
             $this->view("template/header", $data);
