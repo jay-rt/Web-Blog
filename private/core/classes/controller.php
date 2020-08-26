@@ -18,6 +18,24 @@ abstract class Controller {
 
     }
 
+    protected function checkCSRF($key) {
+        $csrf = $_SESSION[$key];
+        $trusted = false;
+
+        if((strcmp($_COOKIE[$key],$csrf) == 0) && (strcmp($_POST[$key],$csrf) == 0)) {
+            $trusted = true;
+        }
+
+        return $trusted;
+    }
+
+    protected function checkNull($key) {
+        if(empty($_SESSION[$key])) {
+            $bytes = random_bytes(20);
+            $_SESSION[$key] = bin2hex($bytes);
+        }
+    }
+
     private function router () {
 
         if (class_exists($this->route[1])) {

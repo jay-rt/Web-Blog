@@ -13,9 +13,9 @@ class User extends Controller {
     }
     
     function signIn() {
-        $this->checkNull();
+        $this->checkNull("CSRFS");
         
-        $isTrusted = $this->checkCSRF();
+        $isTrusted = $this->checkCSRF("CSRFS");
 
         if ($isTrusted && $_SERVER["REQUEST_METHOD"] == "POST" && (empty($_SESSION["isLoggedIn"]) || !$_SESSION["isLoggedIn"])) {
             $email = htmlentities($_POST["email"]);
@@ -41,7 +41,7 @@ class User extends Controller {
                 // echo("Hash : $hash <br>");
                 // echo("Password: $password <br>");
                 // echo("Invalid Credentials");
-                $this->checkNull();
+                $this->checkNull("CSRFS");
                 header("Location: /user/signin");
             }
             
@@ -79,23 +79,6 @@ class User extends Controller {
         header("Location: /");
     }
 
-    function checkCSRF() {
-        $csrf = $_SESSION["CSRFS"];
-        $trusted = false;
-
-        if((strcmp($_COOKIE["CSRFS"],$csrf) == 0) && (strcmp($_POST["CSRFS"],$csrf) == 0)) {
-            $trusted = true;
-        }
-
-        return $trusted;
-    }
-
-    function checkNull() {
-        if(empty($_SESSION["CSRFS"])) {
-            $bytes = random_bytes(20);
-            $_SESSION["CSRFS"] = bin2hex($bytes);
-        }
-    }
 }
 
 ?>
