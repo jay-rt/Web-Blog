@@ -31,7 +31,9 @@
                         <?php echo($publication_date)?></p>
 
                     <?php if(strcmp($email,$_SESSION["email"]) == 0) : ?>
-                    <button onclick="window.location.href='/blog/updateblog/<?php echo($slug)?>';"> Update</button>
+                    <ul class="actions">
+                        <li><a href="/blog/updateblog/<?php echo($slug)?>" class="button">Update</a></li>
+                    </ul>
                     <?php endif ?>
 
                 </div>
