@@ -13,11 +13,7 @@ class User extends Controller {
     }
     
     function signIn() {
-        $this->checkNull("CSRFS");
-        
-        $isTrusted = $this->checkCSRF("CSRFS");
-
-        if ($isTrusted && $_SERVER["REQUEST_METHOD"] == "POST" && (empty($_SESSION["isLoggedIn"]) || !$_SESSION["isLoggedIn"])) {
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && (empty($_SESSION["isLoggedIn"]) || !$_SESSION["isLoggedIn"])) {
             $email = htmlentities($_POST["email"]);
             $password = htmlentities($_POST["password"]);
             // $verify = password_hash($password,PASSWORD_DEFAULT);
@@ -28,7 +24,6 @@ class User extends Controller {
             $isVerified = password_verify($password, $hash);
             $_SESSION["isLoggedIn"] = $isVerified;
             $_SESSION["email"] = $email;
-            $_SESSION["CSRFS"] = null;
 
             if($_SESSION["isLoggedIn"]) {
                 // echo("$isVerified <br>"); 
@@ -41,21 +36,17 @@ class User extends Controller {
                 // echo("Hash : $hash <br>");
                 // echo("Password: $password <br>");
                 // echo("Invalid Credentials");
-                $this->checkNull("CSRFS");
                 header("Location: /user/signin");
             }
             
 
         } else {
             if(empty($_SESSION["isLoggedIn"]) || !$_SESSION["isLoggedIn"]) {
-
-                setcookie("CSRFS", $_SESSION["CSRFS"]);
-
-                $data = Array("title" => "Sign In", "CSRFS" => $_SESSION["CSRFS"]);
+                $data = Array("title" => "Sign In");
             
                 $this->view("template/header", $data);
                 $this->view("template/menu");
-                $this->view("user/signin", $data);
+                $this->view("user/signin");
                 $this->view("template/footer");
             } else {
             header("Location: /");
@@ -78,7 +69,6 @@ class User extends Controller {
         session_destroy();
         header("Location: /");
     }
-
 }
 
 ?>

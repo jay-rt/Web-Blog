@@ -44,36 +44,28 @@ class Blog extends Controller {
     }
 
     function createBlog() {
-        $this->checkNull("CSRFC");
-        
-        $isTrusted = $this->checkCSRF("CSRFC");
-
-        if ($isTrusted && $_SERVER["REQUEST_METHOD"] == "POST" && $_SESSION["isLoggedIn"]) {
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && $_SESSION["isLoggedIn"]) {
 
             $slug = htmlentities($_POST["slug"]);
             $post_name = htmlentities($_POST["post_name"]);
             $post_context = htmlentities($_POST["post_context"]);
             $author_email = $_SESSION["email"];
-            $_SESSION["CSRFC"] = null;
 
             $this->model("blogmodel");
             $this->blogmodel->createBlog($slug, $post_name, $post_context, $author_email);
             header("Location: /");
         }else if ($_SERVER["REQUEST_METHOD"] != "POST" && $_SESSION["isLoggedIn"]){
-
-            setcookie("CSRFC", $_SESSION["CSRFC"]);
-
-            $data = Array("title" => "Create New Blog", "CSRFC" => $_SESSION["CSRFC"]);
+            $data = Array("title" => "Create New Blog");
             $this->view("template/header", $data);
             $this->view("template/menu");
-            $this->view("blog/create/index",$data);
+            $this->view("blog/create/index");
             $this->view("template/footer");
         }else {
             header("Location: /");
         }
     }
 
-    function updateBlog() {
+    function updateBlog($slug = "uHadItComing") {
         if ($_SERVER["REQUEST_METHOD"] == "POST" && $_SESSION["isLoggedIn"]) {
 
             

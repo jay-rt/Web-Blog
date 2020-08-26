@@ -3,7 +3,6 @@
         <div class="inner">
             <h2>Create New Blog</h2>
             <form method="POST">
-                <input type="hidden" name="CSRFC" value="<?php echo($CSRFC)?>">
                 <label>Slug <input type="text" name="slug" title="Enter the slug value for this post" required></label>
                 <label>Title <input type="text" name="post_name" title="Enter the title of the post" required></label>
                 <label>Content <textarea name="post_context" title="Enter the Content for the post" required></textarea></label>
