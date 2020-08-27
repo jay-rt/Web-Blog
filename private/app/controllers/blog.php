@@ -2,14 +2,7 @@
 
 class Blog extends Controller {
     function Index () {
-
-        $data = Array("title" => "Home");
-
-        $this->view("template/header", $data);
-        $this->view("template/menu");
-        $this->view("main/index", $data);
-        $this->view("template/footer");
-        
+        echo("This is the blog controller");
     }
 
     function listOfBlogs() {
@@ -76,20 +69,13 @@ class Blog extends Controller {
     function updateBlog($slug) {
         if ($_SERVER["REQUEST_METHOD"] == "POST" && $_SESSION["isLoggedIn"]) {
 
-            
             $slug = htmlentities($_POST["slug"]);
             $post_name = htmlentities($_POST["post_name"]);
             $post_context = htmlentities($_POST["post_context"]);
             $pk = htmlentities($_POST["pk"]);
 
             $this->model("blogmodel");
-            // $wasUpdated = $this->blogmodel->updateBlog($slug, $post_name, $post_context, $pk);
             $this->blogmodel->updateBlog($slug, $post_name, $post_context, $pk);
-            // if($wasUpdated) {
-            //     echo("Success");
-            // }else{
-            //     echo("Failed");
-            // }
             header("Location: /blog/readblog/$slug");
         }else if($_SERVER["REQUEST_METHOD"] != "POST" && $_SESSION["isLoggedIn"]){
             $this->model("blogmodel");

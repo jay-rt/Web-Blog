@@ -5,9 +5,7 @@ class User extends Controller {
     function __construct() {
         parent::__construct();
     }
-    /*
-     * http://localhost/
-     */
+
     function Index () {
         echo("This is the user controller");
     }
@@ -24,23 +22,14 @@ class User extends Controller {
             // echo($verify);
             $this->model("blogmodel");
             $hash = $this->blogmodel->getpasswordhash($email);
-            // echo($hash);
             $isVerified = password_verify($password, $hash);
             $_SESSION["isLoggedIn"] = $isVerified;
             $_SESSION["email"] = $email;
             $_SESSION["CSRFS"] = null;
 
             if($_SESSION["isLoggedIn"]) {
-                // echo("$isVerified <br>"); 
-                // echo("Hash : $hash <br>");
-                // echo("Password: $password <br>");
-                // echo("Logged in");
                 header("Location: /");
             } else {
-                // echo("$isVerified <br>");
-                // echo("Hash : $hash <br>");
-                // echo("Password: $password <br>");
-                // echo("Invalid Credentials");
                 $this->checkNull("CSRFS");
                 header("Location: /user/signin");
             }
@@ -64,8 +53,6 @@ class User extends Controller {
     }
 
     function signOut() {
-        // $_SESSION["isLoggedIn"] = false;
-        // unset($_SESSION["isLoggedIn"]);
         $_SESSION = array();
         if (ini_get("session.use_cookies")) {
             $params = session_get_cookie_params();

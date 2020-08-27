@@ -6,13 +6,6 @@ class BlogModel extends Model {
         parent::__construct();
     }
 
-    // function DbVersion() {
-    //     $sql = 'SELECT VERSION()';
-    //     $stmt = $this->db->query($sql);
-    //     $res = $stmt->fetch();
-    //     return $res[0];
-    // }
-
     function blogList() {
         $sql = 'SELECT * from blog_post ORDER BY publication_date';
         $stmt = $this->db->prepare($sql);
@@ -52,7 +45,7 @@ class BlogModel extends Model {
     function updateBlog($slug, $post_name, $post_context, $pk) {
         $sql = "UPDATE blog_post SET slug = :slug, post_name = :post_name, post_context = :post_context WHERE slug = :pk";
         $stmt = $this->db->prepare($sql);
-        return $stmt->execute(array("slug" => $slug, "post_name" => $post_name, "post_context" => $post_context, "pk" => $pk));
+        $stmt->execute(array("slug" => $slug, "post_name" => $post_name, "post_context" => $post_context, "pk" => $pk));
     }
 
     function getPasswordHash($email) {
