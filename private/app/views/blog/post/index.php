@@ -14,7 +14,7 @@
                     <h3 class="major"><?php echo($post_name)?></h3>
                     <p><?php echo($post_context)?></p>
                     
-                    <p> <?php echo($first_name . " " . $last_name)?><br>
+                    <p> <?php echo($last_name . " " . $first_name)?><br>
                         <?php echo($email)?><br>
                         <?php echo($publication_date)?></p>
 
